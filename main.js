@@ -1,28 +1,32 @@
-function preLoad(){
+function preload(){
 
 }
 function setup(){
-    canvas = createCanvas(300,300);
-    canvas.center();
+    canvas = createCanvas(640, 480);
+    canvas.position(300,300);
     video = createCapture(VIDEO);
-    video.size(300,300);
     video.hide();
-    poseNet = ml5.poseNet(video,modelLoaded);
-    poseNet.on('pose',gotPose);
-}
-function modelLoaded(){
-    console.log("poseNet has been initialized");
-
-}
-function gotPose(results){
-    if(results.length>0){
-        console.log(results);
-        
-    }
 }
 function draw(){
+    image(video,0,0,640,480);
+    fill("blue");
+    stroke("blue");
+    rect(20, 20, 600, 30);
+    rect(20, 425, 600, 30);
+    rect(20, 20, 30, 435);
+    rect(595, 20, 30, 435);
+    fill("pink");
+    stroke("pink");
+    circle(45,45,95);
+    circle(590,430,95);
+    fill("purple");
+    stroke("purple");
+    circle(590,45,95);
+    circle(45,430,95);
 
+    
+    
 }
 function take_snapshot(){
-    save('Mustshe_filter_img.png');
+    save("filtered_image.png")
 }
